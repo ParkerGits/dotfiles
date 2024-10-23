@@ -148,6 +148,7 @@ export PATH="/opt/homebrew/opt/ansible@9/bin:$PATH"
 
 export GIT_ROOT="/Users/parlandon/git"
 export GIT_APP_CORE="/Users/parlandon/git/app-core"
+alias fdm="cd /Users/parlandon/git/web-app-ui/apps/legacy-react-app && GIT_ROOT=/Users/parlandon/git yarn devMode"
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
