@@ -148,6 +148,9 @@ export PATH="$VOLTA_HOME/bin:$PATH"
 
 export PATH="/opt/homebrew/opt/ansible@9/bin:$PATH"
 
+export GIT_ROOT="/Users/parlandon/git"
+export GIT_APP_CORE="/Users/parlandon/git/app-core"
+
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
