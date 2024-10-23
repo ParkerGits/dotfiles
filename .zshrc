@@ -134,8 +134,6 @@ alias tmuxcfg="nvim ~/.config/tmux/tmux.conf"
 alias sourcetmux="tmux source ~/.config/tmux/tmux.conf"
 alias dev="cd ~/dev"
 
-alias fdm="cd /Users/parlandon/git/web-app-ui/apps/legacy-react-app && GIT_ROOT=/Users/parlandon/git yarn devMode"
-
 [ -f "/Users/parker/.ghcup/env" ] && source "/Users/parker/.ghcup/env" # ghcup-env
 
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
