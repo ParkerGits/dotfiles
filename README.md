@@ -8,6 +8,14 @@ Clone this repository into `~/dotfiles`. Install the dependencies below and run 
 - press `prefix` + `I` to install tmux plugins,
 - and open Neovim (`nvim`) to install Neovim plugins
 
+### Obsidian
+
+For synchronized Obsidian config, copy the `.obsidian` file to the root of your `Obsidian Vault`
+
+```bash
+mv ~/.obsidian ~/Documents/Obsidian\ Vault/.obsidian
+```
+
 ### git-delta
 
 Add the following to `~/.gitconfig` to use `git-delta` (per their [docs](https://dandavison.github.io/delta/get-started.html)):
