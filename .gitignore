@@ -1,4 +1,5 @@
-**/tmux/plugins
+**/tmux/plugins/tmux
+**/tmux/plugins/tmux-sensible
 .DS_Store
 configstore
 wireshark
