@@ -131,7 +131,7 @@ return {
 
 	{ "nvim-telescope/telescope-ui-select.nvim" },
 
-	{ "github/copilot.vim" },
+	-- { "github/copilot.vim" },
 	{
 		"oysandvik94/curl.nvim",
 		cmd = { "CurlOpen" },

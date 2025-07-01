@@ -1,0 +1,10 @@
+[
+  {
+    "context": "vim_mode == normal && !menu",
+    "bindings": {
+      "space p f": "file_finder::Toggle",
+      "space p v": "workspace::ToggleZoom",
+      "space r n": "editor::Rename"
+    }
+  }
+]
