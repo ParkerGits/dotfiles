@@ -50,7 +50,13 @@ return {
 	-- LSP Support
 	{ "neovim/nvim-lspconfig" },
 	{ "williamboman/mason.nvim" },
-	{ "williamboman/mason-lspconfig.nvim", version = "^1" },
+	{
+		"mason-org/mason-lspconfig.nvim",
+		dependencies = {
+			{ "mason-org/mason.nvim" },
+			"neovim/nvim-lspconfig",
+		},
+	},
 
 	-- Autocompletion
 	{ "hrsh7th/nvim-cmp" },
@@ -124,4 +130,14 @@ return {
 	{ "ThePrimeagen/vim-be-good" },
 
 	{ "nvim-telescope/telescope-ui-select.nvim" },
+
+	{ "github/copilot.vim" },
+	{
+		"oysandvik94/curl.nvim",
+		cmd = { "CurlOpen" },
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+		},
+		config = true,
+	},
 }

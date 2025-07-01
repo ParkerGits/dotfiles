@@ -149,3 +149,35 @@ export PATH="/opt/homebrew/opt/ansible@9/bin:$PATH"
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+# AWS login function
+function aws-login() {
+    # Check if the profile name is provided
+    if [ -z "$1" ]; then
+        echo "Please provide the profile name."
+        return 1
+    fi
+    # Log in to the AWS SSO profile
+    aws sso login --profile $1
+    # Extract the region from the config file
+    region=$(aws configure get region --profile $1)
+    # Export the variables as environment variables
+    export AWS_REGION=$region
+    export AWS_DEFAULT_REGION=$region
+    export AWS_PROFILE=$1
+}
+
+# Set up Claude Code to use Bedrock/AWS
+function claude-bedrock() {
+    export CLAUDE_CODE_USE_BEDROCK=1
+    export ANTHROPIC_MODEL='us.anthropic.claude-sonnet-4-20250514-v1:0'
+    export ANTHROPIC_SMALL_FAST_MODEL='us.anthropic.claude-3-5-haiku-20241022-v1:0'
+    export AWS_REGION=us-west-2
+    export CLAUDE_CODE_MAX_OUTPUT_TOKENS=4096
+    export MAX_THINKING_TOKENS=1024
+    # Uncomment below if you want to DISABLE prompt caching
+    # export DISABLE_PROMPT_CACHING=1
+    echo "Claude Code is now setup to use Bedrock/AWS"
+    # Pass all arguments directly to the claude command
+    claude "$@"
+}

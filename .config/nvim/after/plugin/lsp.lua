@@ -54,30 +54,10 @@ cmp.setup({
 	}),
 })
 
-local lspconfig = require("lspconfig")
 require("mason").setup({})
 require("mason-lspconfig").setup({
 	ensure_installed = { "ts_ls", "eslint", "rust_analyzer", "gopls" },
-	handlers = {
-		["denols"] = function()
-			lspconfig["denols"].setup({
-				root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
-			})
-		end,
-		["ts_ls"] = function()
-			lspconfig["ts_ls"].setup({
-				root_dir = lspconfig.util.root_pattern("tsconfig.json", "jsconfig.json", "package.json"),
-				filetypes = { "javascript", "typescript", "javascriptreact", "typescriptreact" },
-				single_file_support = false,
-			})
-		end,
-		-- let haskell-tools handle language server
-		hls = function() end,
-		-- setup otherwise
-		function(server_name)
-			lspconfig[server_name].setup({})
-		end,
-	},
+	automatic_enable = { exclude = "hls" },
 })
 
 -- Haskell Tools setup

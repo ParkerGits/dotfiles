@@ -46,5 +46,8 @@ map <leader>a[ <Action>(PreviousTab)
 map ]c <Action>(VcsShowNextChangeMarker)
 map [c <Action>(VcsShowPrevChangeMarker)
 
+map gtr <Action>(RunClass)
+map gtd <Action>(DebugClass)
 map gcc <Action>(CommentByLineComment)
 map gff <Action>(ShowReformatFileDialog)
+map grr <Action>(Rerun)
