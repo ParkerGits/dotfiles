@@ -3,14 +3,6 @@ curl.setup({
 	open_with = "vsplit",
 })
 
-vim.keymap.set("n", "<leader>cc", function()
-	curl.open_curl_tab()
-end, { desc = "Open a curl tab scoped to the current working directory" })
-
-vim.keymap.set("n", "<leader>co", function()
-	curl.open_global_tab()
-end, { desc = "Open a curl tab with global scope" })
-
 -- These commands will prompt you for a name for your collection
 vim.keymap.set("n", "<leader>csc", function()
 	curl.create_scoped_collection()
