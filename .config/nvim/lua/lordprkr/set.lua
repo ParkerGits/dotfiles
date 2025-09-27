@@ -27,7 +27,7 @@ vim.opt.isfname:append("@-@")
 vim.opt.updatetime = 50
 
 vim.filetype.add({
-  extension = {
-    mdx = "markdown.mdx",
-  },
+	extension = {
+		mdx = "markdown.mdx",
+	},
 })

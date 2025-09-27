@@ -54,6 +54,16 @@ cmp.setup({
 	}),
 })
 
+local nvim_lsp = require("lspconfig")
+
+vim.lsp.config("denols", {
+	root_dir = nvim_lsp.util.root_pattern("deno.json", "deno.jsonc"),
+})
+
+vim.lsp.config("ts_ls", {
+	workspace_required = false,
+})
+
 require("mason").setup({})
 require("mason-lspconfig").setup({
 	ensure_installed = { "ts_ls", "eslint", "rust_analyzer", "gopls" },

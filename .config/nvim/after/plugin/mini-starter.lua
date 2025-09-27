@@ -48,6 +48,11 @@ starter.setup({
 			section = "Config",
 		},
 		{
+			action = "DBUI",
+			name = "D: Database UI",
+			section = "Plugins",
+		},
+		{
 			action = "CurlCollection global",
 			name = "J: Curl Collections",
 			section = "Plugins",
