@@ -4,7 +4,24 @@
     "bindings": {
       "space p f": "file_finder::Toggle",
       "space p v": "workspace::ToggleZoom",
-      "space r n": "editor::Rename"
+      "space r n": "editor::Rename",
+      "space c a": "editor::ToggleCodeActions",
+      "space d": "editor::ToggleInlineDiagnostics"
+    }
+  },
+  {
+    "context": "Editor && showing_code_actions",
+    "use_key_equivalents": true,
+    "bindings": {
+      "ctrl-f": "editor::ConfirmCodeAction"
+    }
+  },
+  {
+    "context": "Editor && (showing_code_actions || showing_completions)",
+    "use_key_equivalents": true,
+    "bindings": {
+      "ctrl-p": "editor::ContextMenuPrevious",
+      "ctrl-n": "editor::ContextMenuNext"
     }
   }
 ]

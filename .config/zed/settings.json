@@ -1,12 +1,12 @@
 {
-  "agent": {
-    "model_parameters": [],
-    "default_model": {
-      "provider": "zed.dev",
-      "model": "claude-sonnet-4"
-    },
-    "version": "2"
-  },
+  // "agent": {
+  //   "model_parameters": [],
+  //   "default_model": {
+  //     "provider": "zed.dev",
+  //     "model": "claude-sonnet-4"
+  //   },
+  //   "version": "2"
+  // },
   "features": {
     "edit_prediction_provider": "zed"
   },
@@ -45,5 +45,11 @@
   "cursor_shape": "block",
   "tab_bar": { "show": false },
   "relative_line_numbers": true,
-  "scrollbar": { "show": "never" }
+  "scrollbar": { "show": "never" },
+  "diagnostics": {
+    "inline": {
+      "enabled": true,
+      "max_severity": null // same values as the `diagnostics_max_severity` from the editor settings
+    }
+  }
 }

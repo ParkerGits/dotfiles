@@ -146,9 +146,17 @@ export PATH="$VOLTA_HOME/bin:$PATH"
 
 export PATH="/opt/homebrew/opt/ansible@9/bin:$PATH"
 
+export GIT_ROOT="/Users/parlandon/git"
+export GIT_APP_CORE="/Users/parlandon/git/app-core"
+alias fdm="cd /Users/parlandon/git/web-app-ui/apps/legacy-react-app && GIT_ROOT=/Users/parlandon/git yarn devMode"
+
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+export NODE_EXTRA_CA_CERTS=~/.certs/ZScalerRootCA.pem
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
 
 # AWS login function
 function aws-login() {
@@ -167,17 +175,29 @@ function aws-login() {
     export AWS_PROFILE=$1
 }
 
+alias aws-sso-ai-sandbox='aws-login prod-eng-ai-sandbox'
+
 # Set up Claude Code to use Bedrock/AWS
 function claude-bedrock() {
     export CLAUDE_CODE_USE_BEDROCK=1
-    export ANTHROPIC_MODEL='us.anthropic.claude-sonnet-4-20250514-v1:0'
-    export ANTHROPIC_SMALL_FAST_MODEL='us.anthropic.claude-3-5-haiku-20241022-v1:0'
+    export AWS_PROFILE=prod-eng-ai-sandbox
     export AWS_REGION=us-west-2
-    export CLAUDE_CODE_MAX_OUTPUT_TOKENS=4096
-    export MAX_THINKING_TOKENS=1024
     # Uncomment below if you want to DISABLE prompt caching
     # export DISABLE_PROMPT_CACHING=1
-    echo "Claude Code is now setup to use Bedrock/AWS"
     # Pass all arguments directly to the claude command
     claude "$@"
+}
+
+
+function mr-summarize() {
+    echo "Summarizing your MR with AI..."
+    summary=$(echo "Use @agent-mr-reviewer agent to generate a MR summary. Provide the MR summary as your only output." | claude-bedrock --print --output-format json | jq -r '.result')
+    echo "\n\nSummarization complete:\n\n$summary\n\n"
+    reply=$(bash -c "read -n 1 -s -r -p \"Copy to clipboard? (y/n) \" key; echo \$key")
+    if [[ $reply == "y" ]]; then
+        echo "$summary" | pbcopy
+        echo "\nSummary copied to clipboard!"
+    else
+        echo "\nSummary not copied."
+    fi
 }

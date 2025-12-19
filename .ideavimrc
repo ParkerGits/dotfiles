@@ -3,6 +3,7 @@ let mapleader=" "
 
 """ Plugins  --------------------------------
 set surround
+set mini-ai
 "
 """ Plugin settings -------------------------
 let g:argtextobj_pairs="[:],(:),<:>"
