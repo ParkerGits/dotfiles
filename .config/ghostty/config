@@ -2,8 +2,8 @@ theme = Catppuccin Mocha
 background = 202023
 
 font-family = FiraCode Nerd Font Mono
-font-style = Regular
-font-size = 18
+font-style = Medium
+font-size = 16
 
 cursor-style = block
 cursor-style-blink = false

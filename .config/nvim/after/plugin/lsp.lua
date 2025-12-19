@@ -101,7 +101,7 @@ vim.g.haskell_tools = {
 			handler = "toggleterm",
 		},
 		log = {
-			level = vim.log.levels.DEBUG,
+			level = vim.log.levels.INFO,
 		},
 	},
 }
