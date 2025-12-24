@@ -45,7 +45,8 @@ return {
 		dependencies = { "nvim-lua/plenary.nvim" },
 	},
 	"mbbill/undotree",
-	"mhartington/formatter.nvim",
+
+	{ "stevearc/conform.nvim" },
 
 	-- LSP Support
 	{ "neovim/nvim-lspconfig" },
