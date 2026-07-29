@@ -68,6 +68,7 @@ swarm-tools
 .zshrc.local
 
 # Local auth/service config
+.config/1Password/
 .config/op/
 .config/mcp/mcp.json
 .config/gh
